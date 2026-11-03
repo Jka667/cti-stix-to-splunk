@@ -1,0 +1,93 @@
+{
+  "type": "bundle",
+  "id": "bundle--5d0092c5-5f74-4287-9642-33f4c354e56d",
+  "objects": [
+    {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+      "created": "2026-10-01T00:00:00.000Z",
+      "modified": "2026-10-01T00:00:00.000Z",
+      "name": "Sample CTI Team",
+      "identity_class": "organization"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--be055942-6e63-49d7-9fa1-9cb7d8a8f3f4",
+      "created": "2026-10-01T00:00:00.000Z",
+      "modified": "2026-10-01T00:00:00.000Z",
+      "name": "Web Protocols",
+      "external_references": [{"source_name": "mitre-attack", "external_id": "T1071.001"}]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+      "created": "2026-10-01T00:00:00.000Z",
+      "modified": "2026-10-01T00:00:00.000Z",
+      "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+      "name": "Sample C2 domain",
+      "pattern": "[domain-name:value = 'Update-Check.example'] OR [ipv4-addr:value = '203.0.113.45']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-01T00:00:00Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d81f86b9-975b-4c0b-875e-810c5ad45a4f",
+      "created": "2026-10-01T00:00:00.000Z",
+      "modified": "2026-10-01T00:00:00.000Z",
+      "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+      "name": "Sample loader hash",
+      "pattern": "[file:hashes.'SHA-256' = 'AABBCCDDEEFF00112233445566778899AABBCCDDEEFF00112233445566778899']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-01T00:00:00Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--1a9b3c4d-5e6f-4a1b-8c2d-3e4f5a6b7c8d",
+      "created": "2026-10-01T00:00:00.000Z",
+      "modified": "2026-10-01T00:00:00.000Z",
+      "name": "Sample payload URL",
+      "pattern": "[url:value = 'http://update-check.example/Payload.bin']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-01T00:00:00Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e",
+      "created": "2026-01-01T00:00:00.000Z",
+      "modified": "2026-01-01T00:00:00.000Z",
+      "name": "Expired IP",
+      "pattern": "[ipv4-addr:value = '198.51.100.7']",
+      "pattern_type": "stix",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "valid_until": "2026-02-01T00:00:00Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3c4d5e6f-7a8b-4c9d-8e1f-2a3b4c5d6e7f",
+      "created": "2026-10-01T00:00:00.000Z",
+      "modified": "2026-10-02T00:00:00.000Z",
+      "name": "Revoked domain",
+      "pattern": "[domain-name:value = 'false-positive.example']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-01T00:00:00Z",
+      "revoked": true
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4d5e6f7a-8b9c-4d0e-9f1a-2b3c4d5e6f7a",
+      "created": "2026-10-01T00:00:00.000Z",
+      "modified": "2026-10-01T00:00:00.000Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+      "target_ref": "attack-pattern--be055942-6e63-49d7-9fa1-9cb7d8a8f3f4"
+    }
+  ]
+}
